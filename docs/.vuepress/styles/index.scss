@@ -1,0 +1,30 @@
+.vp-navbar-items {
+  a[href='https://windliang.wang/'],
+  a[href='https://github.com/wind-liang/claude-code-learn'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &::before {
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 1rem;
+      content: '';
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  a[href='https://windliang.wang/']::before {
+    background-image: url('/icons/windliang.png');
+  }
+
+  a[href='https://github.com/wind-liang/claude-code-learn']::before {
+    background-image: url('/icons/github.png');
+  }
+}

@@ -31,7 +31,16 @@ export default defineUserConfig({
   bundler: viteBundler(),
 
   theme: defaultTheme({
-    navbar: [],
+    navbar: [
+      {
+        text: '个人博客',
+        link: 'https://windliang.wang/',
+      },
+      {
+        text: '项目 GitHub',
+        link: 'https://github.com/wind-liang/claude-code-learn',
+      },
+    ],
     sidebar: [
       {
         text: '全部文档',
