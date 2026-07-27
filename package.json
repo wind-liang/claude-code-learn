@@ -1,0 +1,17 @@
+{
+  "name": "claude-code-learn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache --clean-temp"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "next",
+    "@vuepress/theme-default": "next",
+    "sass-embedded": "^1.100.0",
+    "vuepress": "next"
+  }
+}

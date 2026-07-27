@@ -1,0 +1,14 @@
+node_modules/
+
+# VuePress generated files
+docs/.vuepress/.cache/
+docs/.vuepress/.temp/
+docs/.vuepress/dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
