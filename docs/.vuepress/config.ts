@@ -27,7 +27,7 @@ const allDocuments = collectMarkdownFiles(docsDirectory).sort((first, second) =>
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: 'Claude Code 学习笔记',
+  title: 'Claude Code 源码学习笔记',
   description: '使用 VuePress 构建的 Claude Code 学习文档',
 
   bundler: viteBundler(),
