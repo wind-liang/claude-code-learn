@@ -19,11 +19,9 @@ const collectMarkdownFiles = (directory: string): string[] =>
     return [`/${relative(docsDirectory, absolutePath).split(sep).join('/')}`]
   })
 
-const allDocuments = collectMarkdownFiles(docsDirectory).sort((first, second) => {
-  if (first === '/README.md') return -1
-  if (second === '/README.md') return 1
-  return first.localeCompare(second, 'zh-CN')
-})
+const allDocuments = collectMarkdownFiles(docsDirectory)
+  .filter((document) => document !== '/README.md')
+  .sort((first, second) => first.localeCompare(second, 'zh-CN'))
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -33,12 +31,7 @@ export default defineUserConfig({
   bundler: viteBundler(),
 
   theme: defaultTheme({
-    navbar: [
-      {
-        text: '文档',
-        link: '/',
-      },
-    ],
+    navbar: [],
     sidebar: [
       {
         text: '全部文档',
