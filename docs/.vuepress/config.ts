@@ -37,7 +37,7 @@ export default defineUserConfig({
         link: 'https://windliang.wang/',
       },
       {
-        text: '项目 GitHub',
+        text: 'cc 源码',
         link: 'https://github.com/wind-liang/claude-code-learn',
       },
     ],
