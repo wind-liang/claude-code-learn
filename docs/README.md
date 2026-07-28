@@ -2,21 +2,7 @@
 title: 文档首页
 ---
 
-# Claude Code 源码学习笔记
+美国东部时间2026年3月31日凌晨4点23分，安全研究者 [Chaofan Shou](https://x.com/Fried_rice) 在 X 发布[推文](https://x.com/Fried_rice/status/2038894956459290963?s=20), 发现 Anthropic 发布到 npm 的 Claude Code 包中，官方没有删除source map 文件, 这意味着 Claude Code 的完整 TypeScript 源码全部泄露, 包含 1902 个源文件以及 513,237 行代码.
 
-这里用于记录 Claude Code 的学习过程、实践方法和常用技巧。
+系列文章基于 cc 源码， [https://github.com/wind-liang/claude-code-learn](https://github.com/wind-liang/claude-code-learn) 的 cc-src 目录。
 
-左侧目录会自动列出 `docs` 目录下的全部 Markdown 文档。新增文档后，
-重新加载页面即可从侧栏进入。
-
-## 编写新文档
-
-在 `docs` 目录或其子目录中创建 Markdown 文件：
-
-```md
-# 文档标题
-
-从这里开始编写内容。
-```
-
-文件保存后会自动生成对应页面，并出现在左侧的“全部文档”目录中。
