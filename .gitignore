@@ -9,6 +9,8 @@ docs/.vuepress/dist/
 .env
 .env.*
 !.env.example
+.vercel/
 
 # macOS
 .DS_Store
+.vercel

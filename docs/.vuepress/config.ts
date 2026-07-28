@@ -48,7 +48,7 @@ export default defineUserConfig({
         children: allDocuments,
       },
     ],
-    sidebarDepth: 1,
+    sidebarDepth: 5,
     contributors: false,
     editLink: false,
     lastUpdated: true,
