@@ -1,5 +1,5 @@
 ---
-title: 4、Tool 工具系统：从 Schema 到副作用
+title: 4、Tool 工具系统：从 Schema 到真实执行
 ---
 
 上一篇沿着模型流走到 `queryLoop()`，最后得到了一条完整的 Tool Use：
@@ -2745,3 +2745,5 @@ queryLoop()
 - **失败也是协议的一部分：** 调用失败或被中断时，仍为已经出现的 Tool Use 生成同 ID 的结果，不把主循环留在半截状态。
 
 这些都不是 Agent 独有的神秘算法。平常业务开发中，API 参数校验、权限中间件、任务队列、并发控制和失败收尾同样需要考虑。Agent 的特殊之处是输入由模型生成，一个任务可能连续调用多个 Tool，`Edit` 和 `Bash` 还会对外部世界产生副作用。这使得原本分散在各层的工程问题，都集中到了一次 Tool 调用周围。
+
+> 系列文更新中：[cc.windliang.wang](https://cc.windliang.wang/)
