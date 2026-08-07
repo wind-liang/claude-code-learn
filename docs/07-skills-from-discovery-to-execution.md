@@ -1,5 +1,5 @@
 ---
-title: 7、Skill 如何进入 Agent"
+title: 7、Skill 如何进入 Agent
 ---
 
 项目中有一份代码审查 Skill：
