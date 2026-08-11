@@ -367,7 +367,7 @@ async function* runAgent({
 
 图中上半部分是第 1～3 节已经走过的「进入子会话」路径；下半部分从 `runAgent()` 结束开始，依次回到 `AgentTool.call()`、`runToolUse()`、`runTools()`，最后才回到父 `queryLoop()`。
 
-![图 2：子 Agent 结果沿调用栈回到父会话](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.svg)
+![图 2：子 Agent 结果沿调用栈回到父会话](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
 
 下面从 `runToolUse()` 开始。它收到 `toolu_agent_01` 后按名称找到 `AgentTool`，再把调用交给通用执行函数。
 
