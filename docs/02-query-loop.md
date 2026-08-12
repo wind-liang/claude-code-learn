@@ -15,7 +15,7 @@ title: 2、CC 的心脏：queryLoop Agent 主循环
 3. 把 Tool Result 放进消息，再次请求模型；
 4. 模型不再调用 Tool 时，结束循环。
 
-![一次输入触发三轮模型请求](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![一次输入触发三轮模型请求](https://windliangblog.oss-cn-beijing.aliyuncs.com/02-query-loop-diagram-02.png)
 
 图里的 `messages` 会逐轮累积，不是每轮重新创建一份只有新结果的消息：
 
@@ -629,7 +629,7 @@ while (true) {
 
 再回头看完整流程图，左边的恢复分支暂时可以忽略。
 
-![queryLoop 完整主流程](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![queryLoop 完整主流程](https://windliangblog.oss-cn-beijing.aliyuncs.com/02-query-loop-diagram-01.png)
 
 ## 循环什么时候结束
 

@@ -58,7 +58,7 @@ async function main(): Promise<void> {
 
 大概流程如下：
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-03.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-03.png)
 
 值得注意的地方是执行主函数的时候没有在文件开头 import，而是这里动态 import：
 
@@ -106,7 +106,7 @@ const simpleMode =
 
 先不用看里边的所有代码，可以把它们理解成三层：
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-04.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-04.png)
 
 ### `main()`：处理进程级初始化
 
@@ -242,7 +242,7 @@ Print 模式为了减少启动开销，会在 `src/main.tsx:3887` 提前调用 `
 
 Commander 会根据 `argv` 选择对应的处理函数：
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-05.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-code-command-to-agent-loop-diagram-05.png)
 
 在真正执行 action 以前，还会先执行一个公共的 `preAction`：
 
@@ -256,7 +256,7 @@ program.hook('preAction', async () => {
 
 所以 `run()` 不是自己决定执行哪个分支，而是先把所有分支注册好，再由 Commander 根据参数选择：
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-06.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-06.png)
 
 ### `.action()`：准备一次 Claude 会话
 
@@ -809,7 +809,7 @@ async function hasPermissionsToUseTool(
 
 整条权限链如下：
 
-![图 8：初始化权限和 Tools](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-08.png)
+![图 8：初始化权限和 Tools](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-08.png)
 
 > `getTools()` 决定模型能看见什么，`hasPermissionsToUseTool()` 决定这一次能不能做。
 
@@ -844,7 +844,7 @@ mcp
 
 整条装配关系如下：
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-09.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-09.png)
 
 下面使用 `/Users/me/shop` 这个示例项目。假设项目中有：
 
@@ -936,7 +936,7 @@ prompt
 
 展开后的 `prompt` 会交给模型。真正搜索、修改和测试代码的仍然是 `Grep`、`Read`、`Edit` 和 `Bash`。
 
-![图 10：Skill 展开后怎样执行](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-10.png)
+![图 10：Skill 展开后怎样执行](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-10.png)
 
 这就是 Skill 和 Tool 最重要的区别：
 
@@ -1238,7 +1238,7 @@ const mcpCommands = []
 
 `mcpPromise` 会在后台继续连接。Server 连接成功后，连接管理逻辑再把结果更新到 `AppState.mcp`，因此慢 Server 不会卡住界面。
 
-![](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-12.png)
+![](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-12.png)
 
 MCP Server 最终可以贡献三类东西：
 
@@ -1869,7 +1869,7 @@ Skill 使用位置：`src/skills/loadSkillsDir.ts:344-390`
 
 SDK 没有单独复制一套 Agent 逻辑，它是 `runHeadless()` 中使用流式输入输出协议的一种模式。
 
-![图 13：交互、Print 和 SDK 是怎么区分的](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-13.png)
+![图 13：交互、Print 和 SDK 是怎么区分的](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-13.png)
 
 对于本文示例，分流变量是：
 
@@ -2037,7 +2037,7 @@ async function main(): Promise<void> {
 
 这里能学到的不是简单的“使用动态 import”，而是把启动分成了两个阶段：
 
-![图 15：入口文件尽量轻](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-15.png)
+![图 15：入口文件尽量轻](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-15.png)
 
 对于一个普通脚本，静态加载所有模块问题不大。但 Agent 产品通常会包含 UI、模型 SDK、浏览器、MCP、工具系统和大量配置。把入口保持得足够轻，可以得到几个好处：
 
@@ -2052,7 +2052,7 @@ async function main(): Promise<void> {
 
 从源码看，Claude Code 有三层入口：
 
-![图 16：Claude Code 的三层入口](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-16.png)
+![图 16：Claude Code 的三层入口](https://windliangblog.oss-cn-beijing.aliyuncs.com/01-claude-command-to-agent-loop-diagram-16.png)
 
 这三层看起来有点绕，但职责并不一样：
 

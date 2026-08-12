@@ -65,7 +65,7 @@ Memory (saved 2 days ago): ~/.claude/projects/-Users-me-shop/memory/feedback-rea
 
 这篇追踪这条消息从磁盘回到后续请求的过程：Claude Code 先保留索引，再用一次独立模型调用选文件，最后把选中的正文作为附件写进会话。
 
-![图 1：一条 Memory 被按需找回并进入下一轮](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：一条 Memory 被按需找回并进入下一轮](https://windliangblog.oss-cn-beijing.aliyuncs.com/08-memory-and-agentic-rag-diagram-01.png)
 
 ## 1. 先进入上下文的是索引，不是全部记忆
 
@@ -855,7 +855,7 @@ type: feedback
 
 用户并不总会明确说「记住」。例如用户在解决测试失败时说出「登录模块的集成测试不得 mock 数据库」，这条约束对以后排查仍然有用，但主 Agent 可能只专注于修复当前测试。因此，正常任务结束后还会有一条后台提取路径：
 
-![图 2：任务结束后产生 Memory 的后台路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 2：任务结束后产生 Memory 的后台路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/08-memory-and-agentic-rag-diagram-02.png)
 
 ### 1. 主任务结束，Stop Hook 发起后台提取
 

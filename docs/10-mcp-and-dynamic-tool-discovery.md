@@ -37,11 +37,11 @@ title: "10、MCP 外部工具如何进入下一轮 Agent 调用"
 
 先把调用关系放在一张图里，后面每一节都只是在展开其中一段。
 
-![图 1：MCP Tool 的函数调用关系](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：MCP Tool 的函数调用关系](https://windliangblog.oss-cn-beijing.aliyuncs.com/10-mcp-and-dynamic-tool-discovery-diagram-01.png)
 
 
 
-f外部 Server 可以慢、可以变、可以断开；一轮 Agent 调用里的 Tool 表、权限和结果协议却不能中途变成另一份。
+外部 Server 可以慢、可以变、可以断开；一轮 Agent 调用里的 Tool 表、权限和结果协议却不能中途变成另一份。
 
 后面按三段追：第 1 到第 3 节只看「发现结果怎么进入状态」；第 4 节看「状态怎么变成本轮请求的固定快照」；第 5 节再看「模型选中后怎么调用回 MCP Server」。
 

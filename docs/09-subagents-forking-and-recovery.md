@@ -49,7 +49,7 @@ async function* queryLoop(state) {
 
 `Agent` Tool 由父循环执行。它创建的子 Agent 可以读取、搜索、调用模型并完成自己的多轮循环；父循环最后收到的是一份 Tool Result，其中保存子 Agent 的最终文本结论，部分 Agent 还会附带使用统计。
 
-![图 1：一次普通子 Agent 从 Tool Use 到 Tool Result](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：一次普通子 Agent 从 Tool Use 到 Tool Result](https://windliangblog.oss-cn-beijing.aliyuncs.com/09-subagents-forking-and-recovery-diagram-01.png)
 
 这篇沿着图中的同步 `Explore` 路径向下走。后面再对照两条容易混在一起的分支：继承父对话的 fork，以及已停止子 Agent 的 resume。
 
@@ -367,7 +367,7 @@ async function* runAgent({
 
 图中上半部分是第 1～3 节已经走过的「进入子会话」路径；下半部分从 `runAgent()` 结束开始，依次回到 `AgentTool.call()`、`runToolUse()`、`runTools()`，最后才回到父 `queryLoop()`。
 
-![图 2：子 Agent 结果沿调用栈回到父会话](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 2：子 Agent 结果沿调用栈回到父会话](https://windliangblog.oss-cn-beijing.aliyuncs.com/09-subagents-forking-and-recovery-diagram-02.png)
 
 下面从 `runToolUse()` 开始。它收到 `toolu_agent_01` 后按名称找到 `AgentTool`，再把调用交给通用执行函数。
 

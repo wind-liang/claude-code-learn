@@ -33,7 +33,7 @@ title: 4、Tool 工具系统：从 Schema 到真实执行
 
 ## 先看完整调用链
 
-![图 1：从 Tool Use 到下一轮模型请求](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：从 Tool Use 到下一轮模型请求](https://windliangblog.oss-cn-beijing.aliyuncs.com/04-tool-system-from-schema-to-side-effects-diagram-01.png)
 
 整条链路可以分成三层：
 
@@ -630,7 +630,7 @@ queryLoop()
 
 完整函数很长，先看按源码顺序抽出的主干：
 
-![图 2：runToolUse 的固定执行流水线](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 2：runToolUse 的固定执行流水线](https://windliangblog.oss-cn-beijing.aliyuncs.com/04-tool-system-from-schema-to-side-effects-diagram-02.png)
 
 这里实际有三层函数：
 
@@ -2022,7 +2022,7 @@ async function* queryLoop(/* ... */) {
 
 接下来要看的就是上面的流式分支：`addTool()` 怎样把 Tool 放进队列、`processQueue()` 怎样决定何时启动，以及它最终怎样复用同一个 `runToolUse()`。
 
-![图 3：普通调度与流式 Tool 调度的时间差](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-03.png)
+![图 3：普通调度与流式 Tool 调度的时间差](https://windliangblog.oss-cn-beijing.aliyuncs.com/04-tool-system-from-schema-to-side-effects-diagram-03.png)
 
 源码位置：`src/services/tools/StreamingToolExecutor.ts:34-150`
 

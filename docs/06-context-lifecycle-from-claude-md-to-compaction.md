@@ -39,7 +39,7 @@ const userInput = '检查 src/auth/login.ts 的登录逻辑'
 
 ## 先看完整执行顺序
 
-![图 1：项目指令从发现到压缩的完整路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：项目指令从发现到压缩的完整路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/06-context-lifecycle-from-claude-md-to-compaction-diagram-01.png)
 
 图中的调用关系先暴露出三段生命周期：
 
@@ -83,7 +83,7 @@ async function* queryLoop(/* ... */) {
 
 这一段调用链可以先压缩成一张图：
 
-![图 2：第一轮请求前如何收集 CLAUDE.md](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-03.png)
+![图 2：第一轮请求前如何收集 CLAUDE.md](https://windliangblog.oss-cn-beijing.aliyuncs.com/06-context-lifecycle-from-claude-md-to-compaction-diagram-03.png)
 
 交互模式准备一轮请求时，REPL 并不亲自读取文件。它调用 `getUserContext()`，取得 `CLAUDE.md` 和当前日期，再把结果作为 `userContext` 传给 `query()`。
 
@@ -2564,7 +2564,7 @@ messagesForQuery
 
 边界消息用于本地切片，不会作为自然语言内容发送给 Anthropic API。进入 API 前，`normalizeMessagesForAPI()` 会过滤这条 System Message；模型实际读取的是根规则、摘要和状态附件。
 
-![图 4：压缩前后的消息结构](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 4：压缩前后的消息结构](https://windliangblog.oss-cn-beijing.aliyuncs.com/06-context-lifecycle-from-claude-md-to-compaction-diagram-02.png)
 
 `queryLoop()` 中的赋值保证当前 Agent 循环改用这 4 条消息。它们被 `yield` 给 REPL 后，普通交互模式收到 `compact_boundary` 时也会清掉旧状态，再依次保存摘要和附件；因此用户下一次输入时，传回 `queryLoop()` 的仍是这 4 条压缩结果。对应代码位于 `src/screens/REPL.tsx:2582-2604`。
 

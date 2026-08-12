@@ -36,7 +36,7 @@ const toolUse = {
 
 ## 调用关系链
 
-![图 1：一次 Tool 调用的权限检查顺序](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：一次 Tool 调用的权限检查顺序](https://windliangblog.oss-cn-beijing.aliyuncs.com/05-permission-system-and-security-boundaries-diagram-01.png)
 
 这张图可以先读成三段：
 
@@ -1522,7 +1522,7 @@ async function checkPermissionsAndCallTool(
 
 `npm test` 的正常路径走完以后，再看权限判断的其他分支，可以发现 deny、显式 ask 和安全检查都位于普通 allow 与 `bypassPermissions` 之前。
 
-![图 2：权限判断的先后顺序](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 2：权限判断的先后顺序](https://windliangblog.oss-cn-beijing.aliyuncs.com/05-permission-system-and-security-boundaries-diagram-02.png)
 
 这个顺序可以从源码确认：
 

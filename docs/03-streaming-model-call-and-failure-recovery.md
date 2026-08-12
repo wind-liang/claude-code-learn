@@ -39,7 +39,7 @@ async function* queryLoop(/* ... */) {
 
 ## 调用链
 
-![图 1：一次模型回答的两条输出路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：一次模型回答的两条输出路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/03-streaming-model-call-and-failure-recovery-diagram-01.png)
 
 主线只有三步：`queryLoop()` 发起调用，`queryModel()` 组装 API 碎片，结果分别交给 REPL 和 `queryLoop()`。下面直接进入这三个位置。
 
@@ -734,7 +734,7 @@ export function handleMessageFromStream(
 
 把刚才分散在三个函数中的代码画到一张时序图里。为了突出 Tool Use 的组装过程，图中省略了前面的文本内容块，只跟踪 `Grep` 从 `content_block_start` 到完整 `AssistantMessage` 的过程。
 
-![图 2：正常流式过程](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-02.png)
+![图 2：正常流式过程](https://windliangblog.oss-cn-beijing.aliyuncs.com/03-streaming-model-call-and-failure-recovery-diagram-02.png)
 
 现在回看正常路径，实际发生的是：
 
@@ -1161,7 +1161,7 @@ const onQueryEvent = useCallback(event => {
 
 Fallback 的完整流程是：重新请求、撤销旧结果、清空旧的 Tool 状态，最后接收新结果。
 
-![图 3：流式失败后的回滚](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-03.png)
+![图 3：流式失败后的回滚](https://windliangblog.oss-cn-beijing.aliyuncs.com/03-streaming-model-call-and-failure-recovery-diagram-03.png)
 
 ## 模型 Fallback 是另一件事
 

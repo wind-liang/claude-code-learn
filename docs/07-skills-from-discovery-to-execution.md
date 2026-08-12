@@ -116,7 +116,7 @@ The following skills are available for use with the Skill tool:
 5. `SkillTool.call()` 展开完整正文；
 6. 下一轮模型读到审查步骤，再调用 `Read`、`Grep`。
 
-![图 1：code-review Skill 进入 Agent 的完整路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/diagram-01.png)
+![图 1：code-review Skill 进入 Agent 的完整路径](https://windliangblog.oss-cn-beijing.aliyuncs.com/07-skills-from-discovery-to-execution-diagram-01.png)
 
 图中 `getCommands()` 的输出不是原始的 `SKILL.md` 文件，而是一条名为 `codeReviewCommand` 的运行时记录。后面目录展示、模型调用和 `/code-review` 都会按这个名字查找它，因此先把这层转换放在眼前。
 
